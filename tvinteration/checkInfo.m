@@ -1,5 +1,5 @@
 vcm
-Type = 3; Clip = 2;
+Type = 2; Clip = 4;
 % [srcdirI filenamesI] = rfdatabase(datadir(Type, 'kthvideo'), 'person', '.avi');
 [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
 [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
@@ -21,9 +21,12 @@ info.Clip = Clip;
 
 % info.PersonInfo(:, 4, :) = 350;
 % ideaShow(info, 'tvAnnotation', filename); close;
-mat = movie2var(filename, 1, 1);
-nwin = [4 4];
-Person = Hog_in_BoundingBox(mat, info, nwin);
+
+% mat = movie2var(filename, 1, 1);
+% nwin = [4 4];
+% Person = Hog_in_BoundingBox(mat, info, nwin);
+
+
 % ideaShow(info, 'tvAnnotation', filename);
 % ideaShow(info, 'GradientShow', filename, nwin, Person);
 ideaShow(info, 'tvAnnotation', filename);
