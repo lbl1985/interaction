@@ -1,6 +1,6 @@
 % vcm
-Type = 2; Clip = 4;
-record = 1; moviefile = 'trial2.avi';
+Type = 2; Clip = 6;
+record = 0; moviefile = 'trial2.avi';
 % [srcdirI filenamesI] = rfdatabase(datadir(Type, 'kthvideo'), 'person', '.avi');
 [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
 [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
@@ -10,19 +10,21 @@ filenameA = [srcdirA filenamesA{Clip}];
 mat = movie2var(filename, 0, 1);
 
 % nframe = size(mat, ndims(mat));
-skinMat = zeros(size(mat, 1), size(mat, 2), nframe);
+
 
 info = readTVdatasetAnnotation(filenameA);
 info.Type = Type;
 info.Clip = Clip;
 
 nframe = size(info.PersonInfo, 1);
+skinMat = zeros(size(mat, 1), size(mat, 2), nframe);
 if record
     aviobj = avifile(moviefile, 'fps', 22, 'compression', 'none');
 end
+skinColor = zeros(size(mat));
 for i = 1 : nframe
     im = mat(:, :, :, i);
-    h = figure(1); subplot(1, 2, 1); 
+    h = figure(1); subplot(2, 3, 1); 
     imshow(im);
     title(['Frame ' num2str(i)]);
     
@@ -30,14 +32,26 @@ for i = 1 : nframe
     skinprob = computeSkinProbability(im);
     skin = (skinprob >0) + 0;
     skinMat(:, :, i) = skin;
-    h2 = subplot(1, 2, 2); ideaShow(info, 'tvAnnotation_data', skinMat, i, h2);
+    skinColor(:, :, :, i) = repmat(skin, [1 1 3]);
+    h2 = subplot(2, 3, 4); ideaShow(info, 'tvAnnotation_data', skinMat, i, h2);
+    
+    CC = bwconncomp(skin, 8);
+    numPixels = cellfun(@numel, CC.PixelIdxList);
+    [biggest, idx] = sort(numPixels, 'descend');
+    for j = 1 : 4
+        skinShow = zeros(size(skin));
+        skinShow(CC.PixelIdxList{idx(j)}) = 1;
+        figure(h); subplot(2, 3, j + floor(j/3) + 1); imshow(uint8(im .* repmat(skinShow, [1 1 3])));
+    end
+%     figure(1); subplot(1, 2, 2); imshow(skin);    
     if record
         frame = getframe(gcf);
         aviobj = addframe(aviobj, frame);
     end
-    
-%     figure(1); subplot(1, 2, 2); imshow(skin);    
+
 end
+
+% figure(2); playM_asVideo(uint8(double(mat) .* skinColor));
 
 if record
     aviobj = close(aviobj);
