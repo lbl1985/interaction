@@ -1,6 +1,7 @@
 % vcm
 Type = 2; Clip = 6;
 record = 0; moviefile = 'trial2.avi';
+numRegions = 10;
 % [srcdirI filenamesI] = rfdatabase(datadir(Type, 'kthvideo'), 'person', '.avi');
 [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
 [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
@@ -16,12 +17,13 @@ info = readTVdatasetAnnotation(filenameA);
 info.Type = Type;
 info.Clip = Clip;
 
-nframe = size(info.PersonInfo, 1);
+nframe = size(info.PersonInfo, 1); 
 skinMat = zeros(size(mat, 1), size(mat, 2), nframe);
 if record
     aviobj = avifile(moviefile, 'fps', 22, 'compression', 'none');
 end
 skinColor = zeros(size(mat));
+skinRegions = cell(nframe, numRegions);
 for i = 1 : nframe
     im = mat(:, :, :, i);
     h = figure(1); subplot(2, 3, 1); 
@@ -38,12 +40,26 @@ for i = 1 : nframe
     CC = bwconncomp(skin, 8);
     numPixels = cellfun(@numel, CC.PixelIdxList);
     [biggest, idx] = sort(numPixels, 'descend');
+    
+%     figure(1); subplot(1, 2, 2); imshow(skin);    
+    
     for j = 1 : 4
         skinShow = zeros(size(skin));
         skinShow(CC.PixelIdxList{idx(j)}) = 1;
-        figure(h); subplot(2, 3, j + floor(j/3) + 1); imshow(uint8(im .* repmat(skinShow, [1 1 3])));
+        skinShowTemp = uint8(im .* repmat(skinShow, [1 1 3]));
+%         figure(h); subplot(2, 3, j + floor(j/3) + 1); imshow(skinRegions{i, j});        
+        figure(h); subplot(2, 3, j + floor(j/3) + 1); imshow(skinShowTemp);        
     end
-%     figure(1); subplot(1, 2, 2); imshow(skin);    
+
+    for j = 1 : numRegions
+%         skinShow = zeros(size(skin));
+%         skinShow(CC.PixelIdxList{idx(j)}) = 1;        
+%         skinRegions{i, j} = uint8(im .* repmat(skinShow, [1 1 3]));
+        skinRegions{i, j} = CC.PixelIdxList{idx(j)};
+    end
+    
+    
+    
     if record
         frame = getframe(gcf);
         aviobj = addframe(aviobj, frame);
