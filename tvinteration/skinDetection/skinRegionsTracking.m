@@ -1,4 +1,5 @@
-function diffMatrix = skinRegionsTracking(skinRegions)
+% function diffMatrix = skinRegionsTracking(skinRegions)
+function diffMatrix = skinRegionsTracking(im, skinRegions)
 [nframe numRegions]= size(skinRegions);
 diffMatrix = zeros(numRegions, numRegions, nframe);
 % matlabpool open
