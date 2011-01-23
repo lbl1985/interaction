@@ -1,4 +1,4 @@
-function skinColor = skinDetectionGenerate(Type, Clip)
+function [skinColor CCbatch] = skinDetectionGenerate(Type, Clip)
 
 % vcm
 % Type = 2; Clip = 4;
@@ -26,6 +26,7 @@ if record
 end
 
 skinColor = uint8(zeros(size(mat)));
+CCbatch = cell(size(mat, ndims(mat)), 1);
 % skinRegions = cell(nframe, numRegions);
 for i = 1 : nframe
     im = mat(:, :, :, i);
@@ -40,7 +41,8 @@ for i = 1 : nframe
     skinColor(:, :, :, i) = uint8(im .* repmat(double(skin), [1 1 3]));
 %     h2 = subplot(2, 3, 4); ideaShow(info, 'tvAnnotation_data', skinMat, i, h2);
     
-%     CC = bwconncomp(skin, 8);
+    CC = bwconncomp(skin, 8);
+    CCbatch{i} = CC;
 %     numPixels = cellfun(@numel, CC.PixelIdxList);
 %     [biggest, idx] = sort(numPixels, 'descend');
     
