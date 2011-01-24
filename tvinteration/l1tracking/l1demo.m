@@ -37,7 +37,7 @@ end
 
 bdbox = regionprops(CCbatch{1}, 'BoundingBox');
 
-for i = 2 : 4
+for i = 1 : 4
 %     CC.PixelIdxList{idx(j)}) 
 %     bdbox = regionprops(CCbatch{1}, 'BoundingBox');
 %     init_pos = 
