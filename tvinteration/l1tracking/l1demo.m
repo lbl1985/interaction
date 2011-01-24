@@ -81,20 +81,32 @@ end
 
 %%
 nregions = 4; Colors = varycolor(nregions); sz_T = [12 15];
+record = 1;
 S = cell(nregions, 1);
+if record == 1
+    aviobj = avifile('testvideo.avi', 'fps', 22, 'compression', 'none');
+end
 for i = 1 : nregions
     s_res = fullfile(res_path, filenameT, ['L1_result_' num2str(start_frame), '_', num2str(nframes), '_' num2str(i)]);
     S{i} = load(s_res);
-    for t = 1:nframes
-        img_color	= imread(s_frames{t});
-        img_color	= double(img_color);
-        imshow(uint8(img_color));
-        for j = 1 : nregions
-            color = Colors(j, :);
-            map_afnv	= tracking_res(:,t)';
-            drawAffine(map_afnv, sz_T, color, 2);
-        end        
-        f = getframe(gcf);
-        % imwrite(uint8(f.cdata(fcdatapts(1,1):fcdatapts(1,2), fcdatapts(2,1):fcdatapts(2,2), :)), s_res);
+end
+for t = 1:nframes
+    img_color	= imread(s_frames{t});
+    img_color	= double(img_color);
+    imshow(uint8(img_color));
+    for j = 1 : nregions
+        color = Colors(j, :);
+        map_afnv	= S{j}.tracking_res(:,t)';
+        drawAffine(map_afnv, sz_T, color, 2);
     end
+    %     f = getframe(gcf);
+    if record
+        frame = getframe(gcf);
+        aviobj = addframe(aviobj, frame);
+    end
+
+    % imwrite(uint8(f.cdata(fcdatapts(1,1):fcdatapts(1,2), fcdatapts(2,1):fcdatapts(2,2), :)), s_res);
+end
+if record
+    aviobj = close(aviobj);
 end
