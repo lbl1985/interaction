@@ -43,8 +43,7 @@ for i = 1 : nframe
     
     CC = bwconncomp(skin, 8);    
     numPixels = cellfun(@numel, CC.PixelIdxList);
-    [~, idx] = sort(numPixels, 'descend');
-    CC.PixelIdxList = CC.PixelIdxList(idx);
+    [biggest, idx] = sort(numPixels, 'descend');
     CCbatch{i} = CC;
     
 %     figure(1); subplot(1, 2, 2); imshow(skin);    
