@@ -1,4 +1,5 @@
 function l1demo(Type, Clip)
+cd('/home/binlong/Documents/MATLAB/work/interaction/tvinteration/l1tracking');
 [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
 [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
 filename = [srcdirI filenamesI{Clip}]; outName = './sample.txt';
@@ -20,7 +21,10 @@ res_path = fullfile(path, 'result');
 
 fprefix = fullfile(path, 'pktest02');
 fext = 'jpg';
+comm = ['!rm ' fullfile(fprefix, ['*.' fext]) ];
+eval(comm);
 start_frame = 1;
+
 nframes = mat2frames(skinColor, fprefix, filename);
 % nframes = 62;
 
@@ -73,8 +77,8 @@ for i = 1 : 4
     %% output result
     % s_res = sprintf('%s\\L1_result_%d_%d_%d.mat', res_path, start_frame, nframes, i);
     s_res = fullfile(res_path, filenameT, ['L1_result_' num2str(start_frame), '_', num2str(nframes), '_' num2str(i)]);
-    if ~exist(s_res, 'dir')
-        mkdir(s_res);
+    if ~exist(fullfile(res_path, filenameT), 'dir')
+        mkdir(fullfile(res_path, filenameT));
     end
     save(s_res, 'tracking_res');
 end
