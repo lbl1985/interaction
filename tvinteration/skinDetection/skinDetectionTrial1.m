@@ -1,5 +1,5 @@
 % vcm
-Type = 2; Clip = 4;
+Type = 2; Clip = 3;
 record = 0; 
 moviefile = 'trial1.avi'; moviefile2 = 'trial2.avi';
 numRegions = 10;
