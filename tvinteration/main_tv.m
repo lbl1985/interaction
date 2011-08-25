@@ -18,7 +18,7 @@ infoBatch = PersonBatch;
 HankelMatrixBatch = infoBatch;
 h = waitbar(0, 'Please wait ...');
 try
-    for i = 15 : nClip
+    for i = 1 : nClip
         Type = ClipNum(i, 1); Clip = ClipNum(i, 2);
         [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
         [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
