@@ -9,6 +9,9 @@ end
 
 if ispc
     workingpath = 'C:\Users\lbl1985\Documents\MATLAB\';
+    if ~exist(workingpath, 'dir')
+        workingpath = 'C:\Users\XPS\Documents\MATLAB\';
+    end
 end
 
 if ismac
