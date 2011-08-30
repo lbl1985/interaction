@@ -1,4 +1,4 @@
 function projectBaseFolder = getProjectBaseFolder
-projectBaseFolder = which('HFeatureFlag.m');
-projectBaseFolder = projectBaseFolder(1:strfind(projectBaseFolder, 'HFeatureFlag.m') - 1);
+projectBaseFolder = which('interactionFlag.m');
+projectBaseFolder = projectBaseFolder(1:strfind(projectBaseFolder, 'interactionFlag.m') - 1);
  
