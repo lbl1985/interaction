@@ -3,8 +3,8 @@ type = 0; clip = 8;
 
 filename = [srcdir filenames{clip}]; fn = filenames{clip};
 
-nclusters = 5; nObject = 2; siz = 0.5;
-frameStart=10;frameEnd=70; nframe = frameEnd - frameStart + 1;
+nclusters = 2; nObject = 1; siz = 0.5;
+frameStart=1;frameEnd=70; nframe = frameEnd - frameStart + 1;
 clipname = fn(1:end - 4);
 cliptype = fn(1:end - 6);
 FeaturePos = zeros(nclusters * nObject, 2, nframe);
