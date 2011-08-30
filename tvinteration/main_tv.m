@@ -5,12 +5,13 @@ vcm
 ClipNum = []; 
 tc = [1 : 6 8:16 18 : 28]'; 
 ClipNum = cat(1, ClipNum, [0 * ones(length(tc), 1) tc]);
-% tc = [1 : 10 12 : 19 21 25 29 33 44 45 47 49]';
-% ClipNum = cat(1, ClipNum, [1 * ones(length(tc), 1) tc]);
-tc = [1 : 2 4 : 6 8 : 14: 16 18: 20 23 25 : 30 32 : 33 36 : 38 40 : 41 43: 45]';
-ClipNum = cat(1, ClipNum, [2 * ones(length(tc), 1) tc]);
+tc = [1 : 10 12 : 19 21 25 29 33 44 45 47 49]';
+ClipNum = cat(1, ClipNum, [1 * ones(length(tc), 1) tc]);
+% tc = [1 : 2 4 : 6 8 : 14: 16 18: 20 23 25 : 30 32 : 33 36 : 38 40 : 41 43: 45]';
+% ClipNum = cat(1, ClipNum, [2 * ones(length(tc), 1) tc]);
 
 
+% nwin = [8 16];   HankelWindowSize = 4;
 nwin = [16 8];   HankelWindowSize = 4;
 nClip = length(ClipNum);
 PersonBatch = cell(nClip, 1);
@@ -18,7 +19,7 @@ infoBatch = PersonBatch;
 HankelMatrixBatch = infoBatch;
 h = waitbar(0, 'Please wait ...');
 try
-    for i = 15 : nClip
+    for i = 1 : nClip
         Type = ClipNum(i, 1); Clip = ClipNum(i, 2);
         [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
         [srcdirA filenamesA] = rfdatabase(datadir_interaction(Type, 'tvinteractionAnnotation'), [], '.txt');
@@ -44,5 +45,9 @@ catch ME
     error(ME.message);
 end
 groupsLabel = ClipNum(:, 1);
-[CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', (1:6)); mean(CorrectRate)
+% hand shaking and hand clapping : pca_dim = 6, pca_dimSVM from 1 : 6 : [0.56 0.64 0.60 0.48 0.48 0.48];
+% [CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', (1:6)); mean(CorrectRate)
+% % hand shaking and hand clapping : pca_dim = 6, pca_dimSVM from 1 : 6 : [0.56 0.64 0.60 0.48 0.48 0.48];
+[CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', 2); mean(CorrectRate)
+% [CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', 1); mean(CorrectRate)
 % ClipNum = cat(1, ClipNum, [0 * ones(length(8:16), 1) (8 : 16)']);
