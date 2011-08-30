@@ -50,4 +50,3 @@ groupsLabel = ClipNum(:, 1);
 % % hand shaking and hand clapping : pca_dim = 6, pca_dimSVM from 1 : 6 : [0.56 0.64 0.60 0.48 0.48 0.48];
 [CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', 2); mean(CorrectRate)
 % [CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', 1); mean(CorrectRate)
-% ClipNum = cat(1, ClipNum, [0 * ones(length(8:16), 1) (8 : 16)']);

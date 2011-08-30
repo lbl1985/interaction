@@ -13,8 +13,8 @@ ttI = [2 14 15 16 18 19 20 21 24 25 26 27 28 32 40 41 42 43 44 45 46 47 48 49 50
 trainIdx = [0 * ones(length(ttI), 1) ttI'];
 ttI = [1 6 7 8 9 10 11 12 13 23 24 25 27 28 29 30 31 32 33 34 35 44 45 47 48];
 trainIdx = [trainIdx; 1 * ones(length(ttI), 1) ttI'];
-ttI = [1 7 8 9 10 11 12 13 14 16 17 18 22 23 24 26 29 31 35 36 38 39 40 41 42];
-trainIdx = [trainIdx; 2 * ones(length(ttI), 1) ttI'];
+% ttI = [1 7 8 9 10 11 12 13 14 16 17 18 22 23 24 26 29 31 35 36 38 39 40 41 42];
+% trainIdx = [trainIdx; 2 * ones(length(ttI), 1) ttI'];
 
 train = false(size(ClipNum, 1), 1);
 for i = 1 : size(ClipNum)

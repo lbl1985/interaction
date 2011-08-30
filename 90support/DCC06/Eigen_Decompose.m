@@ -20,7 +20,11 @@ function [P,D] = Eigen_Decompose(X,opt);
 switch(opt)
     case 1
         Corr = X*X'./M;
+<<<<<<< HEAD
         [v d V] = svd(Corr);
+=======
+        [v d] = eig(Corr);
+>>>>>>> 4b70f2bdf1810f88d01004fbde14e6a54103572c
         P = v; 
     case 2
         Corr = X'*X./M;
