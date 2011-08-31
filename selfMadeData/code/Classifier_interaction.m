@@ -197,5 +197,6 @@ switch mode
         
         varargout{1} = Margin;
         varargout{2} = wBatch;
-        varargout{3} = ypredMat;
+        varargout{3} = ypred;
+        varargout{4} = ypredMat;
 end
