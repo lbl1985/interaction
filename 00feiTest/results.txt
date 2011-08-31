@@ -1,1 +1,47 @@
-pca_dim: 1 HankelWindowSize: 3
+pca_dim: 5 HankelWindowSize: 3
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 5 HankelWindowSize: 4
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 5 HankelWindowSize: 5
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 5 HankelWindowSize: 6
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 5 HankelWindowSize: 7
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 6 HankelWindowSize: 3
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 6 HankelWindowSize: 4
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 6 HankelWindowSize: 5
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 6 HankelWindowSize: 6
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 6 HankelWindowSize: 7
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 7 HankelWindowSize: 3
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 7 HankelWindowSize: 4
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 7 HankelWindowSize: 5
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 7 HankelWindowSize: 6
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
+pca_dim: 7 HankelWindowSize: 7
+Hollywood_test2_IPLDE: error
+Hollywood_test2_IPLDE: error
