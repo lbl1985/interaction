@@ -1,9 +1,9 @@
-if ispc
-    workingpath = 'C:\Users\XPS\Documents\MATLAB\work\interaction';
-end
-
-cd(workingpath);
-addpath(genpath(fullfile(workingpath, '90support')));
+% if ispc
+%     workingpath = 'C:\Users\XPS\Documents\MATLAB\work\interaction';
+% end
+% 
+% cd(workingpath);
+% addpath(genpath(fullfile(workingpath, '90support')));
 
 % interaction_startup
 
