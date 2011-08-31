@@ -1,0 +1,68 @@
+pca_dim: 5 HankelWindowSize: 3
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.48
+Hollywood_test3_OriginalAR: 0.52
+Hollywood_test4_PCAAR: 0.72
+pca_dim: 5 HankelWindowSize: 4
+Hollywood_test1_LDEAR: 0.68
+Hollywood_test3_OriginalAR: 0.72
+Hollywood_test4_PCAAR: 0.52
+pca_dim: 5 HankelWindowSize: 5
+Hollywood_test1_LDEAR: 0.76
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 5 HankelWindowSize: 6
+Hollywood_test1_LDEAR: 0.76
+Hollywood_test3_OriginalAR: 0.64
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 5 HankelWindowSize: 7
+Hollywood_test1_LDEAR: 0.8
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.48
+pca_dim: 6 HankelWindowSize: 3
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.48
+Hollywood_test3_OriginalAR: 0.52
+Hollywood_test4_PCAAR: 0.4
+pca_dim: 6 HankelWindowSize: 4
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.4
+Hollywood_test3_OriginalAR: 0.72
+Hollywood_test4_PCAAR: 0.52
+pca_dim: 6 HankelWindowSize: 5
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.52
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 6 HankelWindowSize: 6
+Hollywood_test1_LDEAR: 0.64
+Hollywood_test3_OriginalAR: 0.64
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 6 HankelWindowSize: 7
+Hollywood_test1_LDEAR: 0.84
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.48
+pca_dim: 7 HankelWindowSize: 3
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.48
+Hollywood_test3_OriginalAR: 0.52
+Hollywood_test4_PCAAR: 0.56
+pca_dim: 7 HankelWindowSize: 4
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.56
+Hollywood_test3_OriginalAR: 0.72
+Hollywood_test4_PCAAR: 0.52
+pca_dim: 7 HankelWindowSize: 5
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.52
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 7 HankelWindowSize: 6
+Hollywood_test1_LDE: error
+Hollywood_test1_LDEAR: 0.64
+Hollywood_test3_OriginalAR: 0.64
+Hollywood_test4_PCAAR: 0.64
+pca_dim: 7 HankelWindowSize: 7
+Hollywood_test1_LDEAR: 0.8
+Hollywood_test3_OriginalAR: 0.68
+Hollywood_test4_PCAAR: 0.48
