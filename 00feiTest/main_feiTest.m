@@ -2,10 +2,10 @@ clc
 baseFolder = getProjectBaseFolder();
 [srcdir filenames n] = rfdatabase(fullfile(getProjectBaseFolder(), ...
     '00feiTest', 'testData'), [], '.mat');
-HankelWindowSize = 7;
+HankelWindowSize = 4;
 pca_dim = 4;
 
-for i = 1: n
+for i = 1
     I = load(fullfile(srcdir, filenames{i}));
     I = I.I;
     nVideo = length(I);
