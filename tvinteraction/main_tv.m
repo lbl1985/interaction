@@ -18,7 +18,7 @@ PersonBatch = cell(nClip, 1);
 infoBatch = PersonBatch;
 HankelMatrixBatch = infoBatch;
 h = waitbar(0, 'Please wait ...');
-try
+% try
     for i = 1 : nClip
         Type = ClipNum(i, 1); Clip = ClipNum(i, 2);
         [srcdirI filenamesI] = rfdatabase(datadir_interaction(Type, 'tvinteraction'), [], '.avi');
@@ -39,11 +39,11 @@ try
         waitbar(i/nClip);
     end
     close(h);
-catch ME
-    display(['i = ' num2str(i)]);
-    display(ME.stack(1).file)
-    error(ME.message);
-end
+% catch ME
+%     display(['i = ' num2str(i)]);
+%     display(ME.stack(1).file)
+%     error(ME.message);
+% end
 groupsLabel = ClipNum(:, 1);
 % hand shaking and hand clapping : pca_dim = 6, pca_dimSVM from 1 : 6 : [0.56 0.64 0.60 0.48 0.48 0.48];
 % [CorrectRate CPMatrix trainBatch] = Classifier_interaction(HankelMatrixBatch, groupsLabel, 'OneHankelAsOneSet_SVM_pcadimSVM_Batch', 1, 6, 'poly', (1:6)); mean(CorrectRate)

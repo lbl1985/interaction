@@ -28,3 +28,9 @@ addpath(workingpath);
 addpath(fullfile(workingpath, '90support'));
 addpath(genpath(fullfile(workingpath, '00feiTest')));
 addpath(genpath(fullfile(workingpath, 'tvinteraction')));
+
+if ispc
+    rmpath(genpath(fullfile(workingpath, '90support', 'mmread_linux')));
+elseif isunix
+    rmpath(genpath(fullfile(workingpath, '90support', 'mmread')));
+end
