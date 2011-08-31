@@ -182,7 +182,7 @@ switch mode
                 
                 [xsup,w,b,nbsv]=svmmulticlassoneagainstall(FF(train, :),groups(train),n_class,c,lambda,kernel,kerneloption,verbose);
                 %             [xsup,w,b,nbsv]=svmmulticlassoneagainstone(FF(train, :),groups(train),n_class,c,lambda,kernel,kerneloption,verbose);
-                ypred = svmmultival(FF(test, :),xsup,w,b,nbsv,kernel,kerneloption);
+                [ypred, ~, ypredMat] = svmmultival(FF(test, :),xsup,w,b,nbsv,kernel,kerneloption);
                 [CPMatrix{i} CorrectRate(i)] = confusionMatrix(ypred, groups(test));
                 display(['ypred ' num2str(ypred')]);
                 testind = find(test == 1);
@@ -197,4 +197,5 @@ switch mode
         
         varargout{1} = Margin;
         varargout{2} = wBatch;
+        varargout{3} = ypredMat;
 end
